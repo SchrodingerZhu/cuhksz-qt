@@ -27,7 +27,7 @@ CORE=$(python -c "import multiprocessing; print(multiprocessing.cpu_count())")
 
 ### Build
 ./configure -platform win32-clang-g++ \
--opensource -confirmlicence \
+-opensource -confirm-license \
 -opengl desktop -skip qtx11extras -skip qtwayland \
 -skip qtactiveqt -skip qtandroidextras -skip qtserialbus \
 -skip qtdeclarative -skip qtdatavis3d -skip qtcharts \
