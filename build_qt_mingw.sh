@@ -10,7 +10,7 @@ Please run this from a clean MSYS2 build.
 ########################
 
 ### Prepare essential build tools
-pacman -Syu --noconfirm perl python make zip unzip wget
+#pacman -Syu --noconfirm perl python make zip unzip wget
 
 ### Download source code and toolchains
 wget https://github.com/mstorsjo/llvm-mingw/releases/download/$LLVM_VERSION/llvm-mingw-$LLVM_VERSION-x86_64.zip
