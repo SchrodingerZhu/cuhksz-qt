@@ -1,21 +1,31 @@
 #!/usr/bin/env bash 
 set -e
 
+LLVM_VERSION=20200325
+QT_MAJOR_VER=5.15
+QT_MINOR_VER=0
+
 ######## NOTICE ########
 Please run this from a clean MSYS2 build.
 ########################
 
-pacman -Syu --noconfirm perl python make zip unzip
+### Prepare essential build tools
+pacman -Syu --noconfirm perl python make zip unzip wget
 
-wget https://github.com/mstorsjo/llvm-mingw/releases/download/20200325/llvm-mingw-20200325-x86_64.zip
+### Download source code and toolchains
+wget https://github.com/mstorsjo/llvm-mingw/releases/download/$LLVM_VERSION/llvm-mingw-$LLVM_VERSION-x86_64.zip
+wget http://qt.mirror.constant.com/official_releases/qt/$QT_MAJOR_VER/$QT_MAJOR_VER.$QT_MINOR_VER/single/qt-everywhere-src-$QT_MAJOR_VER.$QT_MINOR_VER.zip
+unzip qt-everywhere-src-$QT_MAJOR_VER.$QT_MINOR_VER.zip
+cd qt-everywhere-src-$QT_MAJOR_VER.$QT_MINOR_VER
 
+### Prepare building environment
 mkdir -p /c/qt/
 mkdir -p /c/qt/llvm-qt
-unzip llvm-mingw-20200325-x86_64.zip -d /c/qt/
 export PATH=/c/qt/llvm-mingw:$PATH
-
+unzip llvm-mingw-$LLVM_VERSION-x86_64.zip -d /c/qt/
 CORE=$(python -c "import multiprocessing; print(multiprocessing.cpu_count())")
 
+### Build
 ./configure -platform win32-clang-g++ \
 -opensource -confirmlicence \
 -opengl desktop -skip qtx11extras -skip qtwayland \
@@ -31,5 +41,7 @@ CORE=$(python -c "import multiprocessing; print(multiprocessing.cpu_count())")
 
 make -j$CORE -s
 make install -j$CORE -s
+
+### Zip artifects
 cd /c/
 zip -r cuhksz-qt.zip qt
