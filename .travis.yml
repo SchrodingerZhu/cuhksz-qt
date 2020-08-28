@@ -36,7 +36,7 @@ cache:
     - /C/tools/msys64
 
 script:
-  - bash build_qt_mingw.sh
+  - $msys2 bash build_qt_mingw.sh
 
 before_deploy:
   - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
