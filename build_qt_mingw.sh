@@ -55,14 +55,16 @@ cd qt-everywhere-src-$QT_MAJOR_VER.$QT_MINOR_VER
 -opensource -confirm-license \
 -shared -no-angle -no-avx512 \
 -opengl desktop -skip qtx11extras -skip qtwayland \
--skip qtactiveqt -skip qtandroidextras -skip qtserialbus \
+-skip qtactiveqt -skip qtandroidextras -skip qtserialbus -skip qtlocation -skip qtscript -skip qtscxml \
 -skip qtdeclarative -skip qtdatavis3d -skip qtcharts \
 -skip qtnetworkauth -skip qtmacextras -skip qtvirtualkeyboard \
 -skip qt3d -skip qtsensors -skip qtwebengine -skip qtspeech \
 -skip qttranslations -skip qtgamepad -skip qtdoc \
 -skip qtlottie -skip qtserialport -skip qtquick3d \
--skip qtremoteobjects -skip qtquickcontrols \
+-skip qtremoteobjects -skip qtquick3d -skip qtquickcontrols \
 -skip qtquickcontrols2 -skip qtquicktimeline \
+-skip qtwebview -skip qtwebsockets \
+-skip qtwebglplugin -skip qtwebchannel \
 -skip qtconnectivity -no-compile-examples -release -prefix /c/qt/llvm-qt
 
 make -j$CORE -s
