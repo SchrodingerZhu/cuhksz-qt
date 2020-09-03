@@ -53,7 +53,7 @@ cd qt-everywhere-src-$QT_MAJOR_VER.$QT_MINOR_VER
 ./configure -platform win32-clang-g++ \
 -icu -openssl \
 -opensource -confirm-license \
--shared -no-angle -no-avx512 \
+-shared -no-angle -no-avx512 -no-dbus \
 -opengl desktop -skip qtx11extras -skip qtwayland \
 -skip qtactiveqt -skip qtandroidextras -skip qtserialbus -skip qtlocation -skip qtscript -skip qtscxml \
 -skip qtdeclarative -skip qtdatavis3d -skip qtcharts \
