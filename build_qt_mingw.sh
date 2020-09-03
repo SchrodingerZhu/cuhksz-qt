@@ -65,6 +65,7 @@ cd qt-everywhere-src-$QT_MAJOR_VER.$QT_MINOR_VER
 -skip qtquickcontrols2 -skip qtquicktimeline \
 -skip qtwebview -skip qtwebsockets \
 -skip qtwebglplugin -skip qtwebchannel \
+-skip qtpurchasing -skip qtgraphicaleffects \
 -skip qtconnectivity -no-compile-examples -release -prefix /c/qt/llvm-qt
 
 make -j$CORE -s
